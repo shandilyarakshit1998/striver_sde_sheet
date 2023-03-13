@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int netres = 0,temp,res = 0;
+        temp = prices[0];
+        for(int i = 1; i < prices.size(); i++) {
+            if(prices[i] > prices[i-1]) {
+                res = max(res,prices[i] - temp);
+                cout<<res<<endl;
+            }
+            else {
+                netres += res;
+                res = 0;
+                temp = prices[i];
+            }
+            
+            
+        }
+        netres+=res;
+        return netres;
+
+    }
+};
